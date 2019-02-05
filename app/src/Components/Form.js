@@ -7,7 +7,7 @@ export default class Example extends React.Component {
 
             <Form className="employeeForm">
                 <Row form>
-                    <Col md={10}>
+                    <Col md={12}>
                         <FormGroup className="theRows">
                             <Label for="exampleFirstName">First Name </Label>
                             <Input type="text" name="firstName" placeholder="Jane" />
@@ -15,7 +15,7 @@ export default class Example extends React.Component {
                     </Col>
                 </Row>
                 <Row form>
-                    <Col md={10}>
+                    <Col md={12}>
                         <FormGroup className="theRows">
                             <Label for="examplePassword">Last Name </Label>
                             <Input type="text" name="lastName" placeholder="Doe" />
@@ -23,7 +23,7 @@ export default class Example extends React.Component {
                     </Col>
                 </Row>
                 <Row form>
-                    <Col md={10}>
+                    <Col md={12}>
                         <FormGroup className="theRows">
                             <Label for="exampleAge">Age </Label>
                             <Input type="number" name="age" placeholder="32" />
@@ -33,7 +33,7 @@ export default class Example extends React.Component {
 
 
                 <Row form>
-                    <Col md={10}>
+                    <Col md={12}>
                         <FormGroup className="theRows">
                             <Label for="exampleCity">Phone Number </Label>
                             <Input type="text" name="phoneNumber" placeholder="123-456-7890" />
@@ -41,7 +41,7 @@ export default class Example extends React.Component {
                     </Col>
                 </Row>
                 <Row form>
-                    <Col md={10}>
+                    <Col md={12}>
                         <FormGroup className="theRows">
                             <Label for="exampleText">Favorite Color </Label>
                             <Input type="text" name="text" placeholder="pink" />
@@ -49,7 +49,7 @@ export default class Example extends React.Component {
                     </Col>
                 </Row>
                 <Row form>
-                    <Col md={10}>
+                    <Col md={12}>
                         <FormGroup className="theRows">
                             <Label for="exampleState">Birthday </Label>
                             <Input type="text" name="birthday" placeholder="10-23-1986" />
@@ -57,7 +57,7 @@ export default class Example extends React.Component {
                     </Col>
                 </Row>
                 <Row form>
-                    <Col md={10}>
+                    <Col md={12}>
                         <FormGroup className="theRows">
                             <Label for="exampleEmail">E-mail </Label>
                             <Input type="email" name="email" placeholder="Jane@me.com" />

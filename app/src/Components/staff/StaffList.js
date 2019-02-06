@@ -13,7 +13,7 @@ class StaffList extends Component {
         Axios.get(`http://localhost:5000/api/all-staff`)
             .then(responseFromApi => {
                 this.setState({
-                    listOfProjects: responseFromApi.data
+                    listOfStaff: responseFromApi.data
                 })
             })
     }
@@ -29,7 +29,7 @@ class StaffList extends Component {
                 <div>
                     {this.state.listOfStaff.map((staff, index) => {
                         return (
-                            <div key={staff._id}>
+                            <div key={index}>
                                 <Link to={`/staff/${staff._id}`}>
                                     <h3>{staff.firstName} {staff.lastName}</h3>
                                 </Link>

@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Col, Row, Form, FormGroup, Label, Input } from 'reactstrap';
 import staffServices from '../../services/staffServices';
 
-export default class Example extends React.Component {
+class AddStaff extends Component {
 
     state = {
         firstName: '',
         lastName: '',
-        age: 0,
+        age: '',
         phoneNumber: '',
         color: '',
         birthday: '',
@@ -133,3 +133,5 @@ export default class Example extends React.Component {
         );
     }
 }
+
+export default AddStaff;

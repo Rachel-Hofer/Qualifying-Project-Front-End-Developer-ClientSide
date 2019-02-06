@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { Route } from "react-router-dom";
-import Form from './Components/Form';
+import AddStaff from './Components/staff/AddStaff';
+import StaffList from './Components/staff/StaffList';
 
 class Main extends Component {
     render() {
         return (
             <div className="main">
-                <Route component={Form} />
+                <Route component={AddStaff} />
+                <Route component={StaffList} />
             </div>
         );
     }

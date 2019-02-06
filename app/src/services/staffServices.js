@@ -5,17 +5,19 @@ class staffServices {
     constructor() {
         let service = axios.create({
             baseURL: 'http://localhost:5000/api',
-            // withCredentials: true
         });
 
         this.staffServices = service;
     }
 
+
     listAllStaff = () => {
 
         return this.staffServices.get('/all-staff')
             .then(response => response.data)
+
     }
+
 
     createStaff = (firstName, lastName, age, phoneNumber, color, birthday, email, file) => {
         let formData = new FormData();
@@ -30,7 +32,6 @@ class staffServices {
 
         return this.staffServices.post('/create-staff', formData, { headers: { 'Content-Type': 'multipart/form-data' } })
             .then((response) => {
-                console.log("**********", response)
                 return response.data
             })
     }

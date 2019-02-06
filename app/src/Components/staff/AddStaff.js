@@ -1,7 +1,6 @@
 import React from 'react';
 import { Col, Row, Form, FormGroup, Label, Input } from 'reactstrap';
-import staffServices from '../services/Services';
-
+import staffServices from '../../services/staffServices';
 
 export default class Example extends React.Component {
 
@@ -13,7 +12,8 @@ export default class Example extends React.Component {
         color: '',
         birthday: '',
         email: '',
-        file: '',
+        file: ''
+
     }
 
     staffServices = new staffServices();
@@ -34,11 +34,12 @@ export default class Example extends React.Component {
 
     handleFormSubmit = (e) => {
         e.preventDefault();
-        this.staffServices.createStaff(this.state.firstName, this.state.lastName,
-            this.state.age, this.state.phoneNumber, this.state.color, this.state.birthday,
-            this.state.email, this.state.file)
-            .then((response) => {
-                console.log("HANDLE FORM SUBMIT^^^^^^^", response)
+
+        this.staffServices.createStaff(this.state.firstName, this.state.lastName, this.state.age, this.state.phoneNumber, this.state.color, this.state.birthday, this.state.email, this.state.file)
+            .then((theStaff) => {
+
+                console.log(theStaff)
+
                 this.setState({
 
                     firstName: '',
@@ -48,14 +49,15 @@ export default class Example extends React.Component {
                     color: '',
                     birthday: '',
                     email: '',
-                    file: '',
-
+                    file: ''
                 })
 
                 this.props.history.push('/all-staff')
 
             })
     }
+
+
 
     render() {
 

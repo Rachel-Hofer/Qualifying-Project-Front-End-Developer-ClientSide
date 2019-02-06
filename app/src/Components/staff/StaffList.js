@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Axios from 'axios';
 
 class StaffList extends Component {
 
@@ -9,23 +9,24 @@ class StaffList extends Component {
         this.state = { listOfStaff: [] };
     }
 
-    getAllStaff = () => {
-        axios.get(`http://localhost:5000/api/all-staff`)
+    listAllStaff = () => {
+        Axios.get(`http://localhost:5000/api/all-staff`)
             .then(responseFromApi => {
                 this.setState({
-                    listOfStaff: responseFromApi.data
+                    listOfProjects: responseFromApi.data
                 })
             })
     }
 
     componentDidMount() {
-        this.getAllStaff();
+        this.listAllStaff();
     }
 
     render() {
+
         return (
-            <div>
-                <div className="StaffList">
+            <div className="StaffList">
+                <div>
                     {this.state.listOfStaff.map((staff, index) => {
                         return (
                             <div key={staff._id}>
@@ -38,9 +39,6 @@ class StaffList extends Component {
                     })
                     }
                 </div>
-                {/* <div>
-                    <AddProject getData={() => this.getAllStaff()} />
-                </div> */}
             </div>
         )
     }

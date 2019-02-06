@@ -63,7 +63,7 @@ class EditStaff extends Component {
         this.staffServices.editStaff(this.state.firstName, this.state.lastName, this.state.age, this.state.phoneNumber, this.state.color, this.state.birthday, this.state.email, this.state.file, this.props.match.params.id)
             .then((staffFromDB) => {
                 console.log("STAFF FROM DB", staffFromDB)
-                this.props.history.push('/all-staff')
+                this.props.history.push(`/staff/${this.props.match.params.id}`)
             })
     }
 

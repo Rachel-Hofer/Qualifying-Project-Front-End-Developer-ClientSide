@@ -32,7 +32,7 @@ class StaffDetails extends Component {
 
         return (
             <div>
-                <img alt="Staff Head Shot" src={this.state.file}></img>
+                <img width="200px" alt="Staff Head Shot" src={this.state.file}></img>
                 <h1>{this.state.firstName} {this.state.lastName}</h1>
                 <h3>Phone Number: {this.state.phoneNumber}</h3>
                 <h3>E-mail Address: {this.state.email}</h3>

@@ -53,6 +53,15 @@ class staffServices {
                 return response.data
             })
     }
+
+    deleteStaff = (staffID, id) => {
+        return this.serviceProperty.post(`/delete-staff/` + id)
+            .then((staffDeleted) => {
+                console.log("This property has been deleted successfully")
+
+            })
+    }
+
 }
 
 export default staffServices;

@@ -30,6 +30,7 @@ class StaffList extends Component {
                     {this.state.listOfStaff.map((staff, index) => {
                         return (
                             <div key={index}>
+                                <img width="200px" alt="headshot" src={staff.file}></img>
                                 <Link to={`/staff/${staff._id}`}>
                                     <h3>{staff.firstName} {staff.lastName}</h3>
                                 </Link>

@@ -30,6 +30,7 @@ class staffServices {
 
         return this.staffServices.post('/create-staff', formData, { headers: { 'Content-Type': 'multipart/form-data' } })
             .then((response) => {
+                console.log("**********", response)
                 return response.data
             })
     }

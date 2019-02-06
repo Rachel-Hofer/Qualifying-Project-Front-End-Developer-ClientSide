@@ -1,6 +1,8 @@
 import React from 'react';
-import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import staffServices from '../services/Services'
+import { Col, Row, Form, FormGroup, Label, Input } from 'reactstrap';
+import staffServices from '../services/Services';
+
+
 export default class Example extends React.Component {
 
     state = {
@@ -26,7 +28,7 @@ export default class Example extends React.Component {
         this.setState({
             file: e.target.files[0]
         }, () => {
-            console.log(this.state)
+            console.log("THIS IS HANDLE FILE CHANGE", this.state)
         })
     }
 
@@ -36,7 +38,7 @@ export default class Example extends React.Component {
             this.state.age, this.state.phoneNumber, this.state.color, this.state.birthday,
             this.state.email, this.state.file)
             .then((response) => {
-                console.log("<><><><><><><><><>", response)
+                console.log("HANDLE FORM SUBMIT^^^^^^^", response)
                 this.setState({
 
                     firstName: '',
@@ -80,7 +82,7 @@ export default class Example extends React.Component {
                     <Col md={12}>
                         <FormGroup className="theRows">
                             <Label for="exampleAge">Age </Label>
-                            <Input onChange={e => this.handleChange(e)} type="number" name="age" placeholder="32" />
+                            <Input onChange={e => this.handleChange(e)} type="text" name="age" placeholder="32" />
                         </FormGroup>
                     </Col>
                 </Row>
@@ -114,7 +116,7 @@ export default class Example extends React.Component {
                     <Col md={12}>
                         <FormGroup className="theRows">
                             <Label for="exampleEmail">E-mail </Label>
-                            <Input onChange={e => this.handleChange(e)} type="email" name="email" placeholder="Jane@me.com" />
+                            <Input onChange={e => this.handleChange(e)} type="text" name="email" placeholder="Jane@me.com" />
                         </FormGroup>
                     </Col>
                 </Row>
@@ -122,7 +124,8 @@ export default class Example extends React.Component {
                     <Label for="exampleFile">File</Label>
                     <Input onChange={e => this.handleFileChange(e)} type="file" name="file" id="exampleFile" />
                 </FormGroup>
-                <Button>Create</Button>
+
+                <Input type="submit" value="Create" />
             </Form>
 
         );

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Col, Row, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import staffServices from '../../services/staffServices';
 
 class AddStaff extends Component {
@@ -57,79 +58,114 @@ class AddStaff extends Component {
             })
     }
 
+    allLetter = (e) => {
+        console.log("LETTER, 1", e.target.value)
+
+        var letters = /[A-Za-z]/gi;
+
+        if (e.target.value === (letters)) {
+            return true;
+        }
+        else {
+            console.log("LETTER, 2", e.target.value)
+            alert('Please input alphabet characters only');
+            return false;
+        }
+    }
+
+    allNumbers = (e) => {
+        console.log("NUMBER, 1", e.target.value)
+
+        var numbers = /^[0-9]+$/;
+
+        if (e.target.value === (numbers)) {
+            return true;
+        }
+        else {
+            console.log("NUMBER, 2", e.target.value)
+            alert('Please input numerical characters only');
+            return false;
+        }
+    }
 
 
     render() {
 
         return (
+            <div>
+                <p className="edit">Add New Employee</p>
 
-            <Form className="employeeForm" onSubmit={this.handleFormSubmit}>
-                <Row form>
-                    <Col md={12}>
-                        <FormGroup className="theRows">
-                            <Label for="exampleFirstName">First Name </Label>
-                            <Input onChange={e => this.handleChange(e)} type="text" name="firstName" placeholder="Jane" />
-                        </FormGroup>
-                    </Col>
-                </Row>
-                <Row form>
-                    <Col md={12}>
-                        <FormGroup className="theRows">
-                            <Label for="examplePassword">Last Name </Label>
-                            <Input onChange={e => this.handleChange(e)} type="text" name="lastName" placeholder="Doe" required />
-                        </FormGroup>
-                    </Col>
-                </Row>
-                <Row form>
-                    <Col md={12}>
-                        <FormGroup className="theRows">
-                            <Label for="exampleAge">Age </Label>
-                            <Input onChange={e => this.handleChange(e)} type="text" name="age" placeholder="32" />
-                        </FormGroup>
-                    </Col>
-                </Row>
+                <Form name="createForm" className="employeeForm" onSubmit={this.handleFormSubmit}>
+                    <Row form>
+                        <Col md={12}>
+                            <FormGroup className="theRows">
+                                <Label for="exampleFirstName">First Name </Label>
+                                <Input className="lettersOnly" onKeyUp={e => this.allLetter(e)} onChange={e => this.handleChange(e)} type="text" name="firstName" placeholder="Jane" />
+                            </FormGroup>
+                        </Col>
+                    </Row>
+                    <Row form>
+                        <Col md={12}>
+                            <FormGroup className="theRows">
+                                <Label for="exampleLastName">Last Name </Label>
+                                <Input onKeyUp={e => this.allLetter(e)} onChange={e => this.handleChange(e)} type="text" name="lastName" placeholder="Doe" required />
+                            </FormGroup>
+                        </Col>
+                    </Row>
+                    <Row form>
+                        <Col md={12}>
+                            <FormGroup className="theRows">
+                                <Label for="exampleAge">Age </Label>
+                                <Input onKeyUp={e => this.allNumbers(e)} onChange={e => this.handleChange(e)} type="text" name="age" placeholder="32" />
+                            </FormGroup>
+                        </Col>
+                    </Row>
 
 
-                <Row form>
-                    <Col md={12}>
-                        <FormGroup className="theRows">
-                            <Label for="exampleCity">Phone Number </Label>
-                            <Input onChange={e => this.handleChange(e)} type="text" name="phoneNumber" placeholder="123-456-7890" required />
-                        </FormGroup>
-                    </Col>
-                </Row>
-                <Row form>
-                    <Col md={12}>
-                        <FormGroup className="theRows">
-                            <Label for="exampleText">Favorite Color </Label>
-                            <Input onChange={e => this.handleChange(e)} type="text" name="color" placeholder="pink" />
-                        </FormGroup>
-                    </Col>
-                </Row>
-                <Row form>
-                    <Col md={12}>
-                        <FormGroup className="theRows">
-                            <Label for="exampleState">Birthday </Label>
-                            <Input onChange={e => this.handleChange(e)} type="text" name="birthday" placeholder="10-23-1986" />
-                        </FormGroup>
-                    </Col>
-                </Row>
-                <Row form>
-                    <Col md={12}>
-                        <FormGroup className="theRows">
-                            <Label for="exampleEmail">E-mail </Label>
-                            <Input onChange={e => this.handleChange(e)} type="text" name="email" placeholder="Jane@me.com" />
-                        </FormGroup>
-                    </Col>
-                </Row>
-                <FormGroup className="theRows">
-                    <Label for="exampleFile">File</Label>
-                    <Input onChange={e => this.handleFileChange(e)} type="file" name="file" id="exampleFile" />
-                </FormGroup>
+                    <Row form>
+                        <Col md={12}>
+                            <FormGroup className="theRows">
+                                <Label for="exampleCity">Phone Number </Label>
+                                <Input onChange={e => this.handleChange(e)} type="text" name="phoneNumber" placeholder="123-456-7890" required />
+                            </FormGroup>
+                        </Col>
+                    </Row>
+                    <Row form>
+                        <Col md={12}>
+                            <FormGroup className="theRows">
+                                <Label for="exampleText">Favorite Color </Label>
+                                <Input onKeyUp={e => this.allLetter(e)} onChange={e => this.handleChange(e)} type="text" name="color" placeholder="pink" />
+                            </FormGroup>
+                        </Col>
+                    </Row>
+                    <Row form>
+                        <Col md={12}>
+                            <FormGroup className="theRows">
+                                <Label for="exampleState">Birthday </Label>
+                                <Input onChange={e => this.handleChange(e)} type="text" name="birthday" placeholder="10-23-1986" />
+                            </FormGroup>
+                        </Col>
+                    </Row>
+                    <Row form>
+                        <Col md={12}>
+                            <FormGroup className="theRows">
+                                <Label for="exampleEmail">E-mail </Label>
+                                <Input onChange={e => this.handleChange(e)} type="text" name="email" placeholder="Jane@me.com" />
+                            </FormGroup>
+                        </Col>
+                    </Row>
+                    <FormGroup className="theRows">
+                        <Label for="exampleFile">File</Label>
+                        <Input onChange={e => this.handleFileChange(e)} type="file" name="file" id="exampleFile" />
+                    </FormGroup>
 
-                <Input type="submit" value="Create" />
-            </Form>
-
+                    <div className="buttonHolder">
+                        <button className="inputBtn btnExtra" type="submit" value="Create">Create</button>
+                        <button className="btnExtra"><Link className="inputBtn" to={'/all-staff/'}>Cancel</Link></button>
+                    </div>
+                    {/* <Input type="submit" value="Create" /> */}
+                </Form>
+            </div>
         );
     }
 }

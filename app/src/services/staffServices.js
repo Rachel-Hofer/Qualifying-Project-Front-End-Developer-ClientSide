@@ -49,15 +49,15 @@ class staffServices {
 
         return this.staffServices.post('/edit-staff/' + id, formData, { headers: { 'Content-Type': 'multipart/form-data' } })
             .then((response) => {
-                console.log("RESPONSE FROM POST EDIT STAFF-------", response.data)
                 return response.data
             })
     }
 
     deleteStaff = (staffID, id) => {
-        return this.serviceProperty.post(`/delete-staff/` + id)
+        console.log(staffID)
+        return this.staffServices.post(`/delete-staff/` + id)
             .then((staffDeleted) => {
-                console.log("This property has been deleted successfully")
+                console.log("This staff member has been deleted successfully", staffDeleted)
 
             })
     }

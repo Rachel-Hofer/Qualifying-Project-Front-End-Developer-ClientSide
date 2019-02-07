@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Col, Row, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import staffServices from '../../services/staffServices';
 
@@ -67,12 +68,12 @@ class EditStaff extends Component {
             })
     }
 
+
     render() {
 
         return (
             <div>
-                <hr />
-                <h3>Edit Staff Information</h3>
+                <p className="edit">Edit Employee Information</p>
                 <Form className="employeeForm" onSubmit={this.handleFormSubmit}>
                     <Row form>
                         <Col md={12}>
@@ -134,14 +135,17 @@ class EditStaff extends Component {
                     </Row>
                     <FormGroup className="theRows">
                         <Label for="exampleFile">Image</Label>
-                        <img width="100px" alt="Staff Head Shot" src={this.state.file}></img>
+                        {/* <img width="100px" alt="Staff Head Shot" src={this.state.file}></img> */}
                         <Input onChange={e => this.handleFileChange(e)} type="file" name="file" id="exampleFile" />
                     </FormGroup>
 
-                    <Input type="submit" value="Save" />
+                    <div className="buttonHolder">
+                        <button className="inputBtn btnExtra" type="submit" value="Save">Save</button>
+                        <button className="btnExtra"><Link className="inputBtn" to={'/all-staff/'}>Cancel</Link></button>
+                    </div>
                 </Form>
 
-            </div>
+            </div >
         )
     }
 }

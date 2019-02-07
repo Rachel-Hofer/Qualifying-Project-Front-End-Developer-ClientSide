@@ -18,22 +18,24 @@ class StaffList extends Component {
     listAllStaff = () => {
         Axios.get(`http://localhost:5000/api/all-staff`)
             .then(responseFromApi => {
-                console.log(responseFromApi.data, this.selectValue)
+                console.log("HERERERERERERERERERERE", responseFromApi)
+                responseFromApi.data.sort((function (a, b) {
+                    if (a.firstName < b.firstName) { return -1; }
+                    if (a.firstName > b.firstName) { return 1; }
+                    return 0;
+                }))
                 this.setState({
                     listOfStaff: responseFromApi.data,
                     filteredStaff: responseFromApi.data
 
                 })
             })
+
+
     }
 
-    // sortByKey = (array, key) => {
-    //     console.log("is this working?")
-    //     return array.sort(function (a, b) {
-    //         var x = a[key]; var y = b[key];
-    //         return ((x < y) ? -1 : ((x > y) ? 1 : 0));
-    //     });
-    // }
+
+
 
     componentDidMount() {
         this.listAllStaff();
@@ -48,15 +50,17 @@ class StaffList extends Component {
     listFilteredStaff = () => {
 
         let copy = this.state.filteredStaff;
-        return copy.sort().map((staff, index) => {
+        return copy.map((staff, index) => {
             return (
 
-                <div class="card" key={index}>
-                    <img class="card-img-top" src={staff.file} alt="Card image cap" />
-                    <div class="card-body">
-                        <h5 class="card-title">{staff.firstName} {staff.lastName}</h5>
-                        <p class="card-text">Phone Number: {staff.phoneNumber}</p>
-                        <Link className="btn btn-primary" to={`/staff/${staff._id}`}>Staff Details</Link>
+                <div className="card" id="listCard" key={index}>
+                    <img className="card-img-top" src={staff.file} alt="Staff Head Shot" />
+                    <div className="card-body">
+                        <p className="name">{staff.firstName} {staff.lastName}</p>
+                        <p className="card-text phone">Phone: {staff.phoneNumber}</p>
+                        <div className="btnHolder">
+                            <Link className="btnToDetails" to={`/staff/${staff._id}`}>Details</Link>
+                        </div>
                     </div>
                 </div>
 
@@ -84,15 +88,20 @@ class StaffList extends Component {
     render() {
 
         return (
-            <div className="StaffList">
-                <label>Search: </label>
-                <input value={this.state.searchInput} onChange={e => this.handleSearch(e)}></input>
-                <select value={this.state.selectValue} onChange={this.handleChange}  >
-                    <option value="firstName">First Name</option>
-                    <option value="lastName">Last Name</option>
-                    <option value="phoneNumber">Phone Number</option>
-                </select>
+            <div className="StaffList" >
 
+                <div className="search">
+                    <label className="searchBarLabel">Search: </label>
+                    <input className="searchBarValue" value={this.state.searchInput} onChange={e => this.handleSearch(e)}></input>
+                    <select className="searchBarSelect" value={this.state.selectValue} onChange={this.handleChange}  >
+                        <option value="firstName">First Name</option>
+                        <option value="lastName">Last Name</option>
+                        <option value="phoneNumber">Phone Number</option>
+                    </select>
+                </div>
+                <div className="createNew">
+                    <Link className="btnToCreate" to={'/create-staff'}>Add New Employee</Link>
+                </div>
                 <div className="cardHolder">
                     {this.listFilteredStaff()}
                 </div>

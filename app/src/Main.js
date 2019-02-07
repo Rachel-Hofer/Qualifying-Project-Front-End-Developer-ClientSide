@@ -10,6 +10,7 @@ class Main extends Component {
     render() {
         return (
             <div className="main">
+                <header className="title">Employee Database</header>
                 <Switch>
                     <Route exact path="/create-staff" component={AddStaff} />
                     <Route exact path="/all-staff" component={StaffList} />

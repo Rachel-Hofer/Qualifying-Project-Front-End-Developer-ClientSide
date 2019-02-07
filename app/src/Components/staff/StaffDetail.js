@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-
+import Axios from 'axios';
+import staffServices from '../../services/staffServices';
 
 class StaffDetails extends Component {
     constructor(props) {
@@ -11,8 +12,22 @@ class StaffDetails extends Component {
         };
     }
 
+    staffServices = new staffServices();
+
     componentDidMount() {
         this.getSingleStaff();
+    }
+
+    listAllStaff = () => {
+        Axios.get(`http://localhost:5000/api/all-staff`)
+            .then(responseFromApi => {
+                console.log(responseFromApi.data, this.selectValue)
+                this.setState({
+                    listOfStaff: responseFromApi.data,
+                    filteredStaff: responseFromApi.data
+
+                })
+            })
     }
 
     getSingleStaff = () => {
@@ -27,22 +42,39 @@ class StaffDetails extends Component {
             })
     }
 
+    deleteStaff = (staffID) => {
+        console.log("STAFF ID HERE", staffID)
+        this.staffServices.deleteStaff(staffID)
+            .then((deletedStaff) => {
+                this.listAllStaff();
+                this.props.history.push('/all-staff')
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
 
     render() {
 
         return (
-            <div className="card">
-                <img className="card-img-top" alt="Staff Head Shot" src={this.state.file}></img>
-                <h1>{this.state.firstName} {this.state.lastName}</h1>
-                <h3>Phone Number: {this.state.phoneNumber}</h3>
-                <h3>E-mail Address: {this.state.email}</h3>
-                <h4>Age: {this.state.age}</h4>
-                <h4>Birthday: {this.state.birthday}</h4>
-                <h5>Favorite Color: {this.state.color}</h5>
+            <div className="detailCardHolder">
+                <div id="detailCard" className="card">
+                    <img className="card-img-top" alt="Staff Head Shot" src={this.state.file}></img>
+                    <p className="name">{this.state.firstName} {this.state.lastName}</p>
+                    <hr></hr>
+                    <p className="detailPTags number">Phone: {this.state.phoneNumber}</p>
+                    <p className="detailPTags email">E-mail: {this.state.email}</p>
+                    <p className="detailPTags age">Age: {this.state.age}</p>
+                    <p className="detailPTags birthday">Birthday: {this.state.birthday}</p>
+                    <p className="detailPTags color">Favorite Color: {this.state.color}</p>
 
-                <Link className="btn btn-primary" to={`/edit-staff/${this.state._id}`}>Edit Staff</Link>
-                <Link className="btn btn-primary" to={'/all-staff'}>Back to all Staff</Link>
-
+                    <div className="buttonHolder">
+                        <Link className="btnToDetails" to={`/edit-staff/${this.state._id}`}>Edit Staff</Link>
+                        <button className="btnToDetails" onClick={() => this.deleteStaff(this.state.staffID)}>Delete Staff</button>
+                        {/* <Link className="btnExtraStyle" to={'/all-staff'}>Delete Staff</Link> */}
+                    </div>
+                </div>
+                <Link className="btnExtra" to={'/all-staff'}>Back to Employee List</Link>
             </div>
         )
     }

@@ -31,8 +31,8 @@ class StaffDetails extends Component {
     render() {
 
         return (
-            <div>
-                <img width="200px" alt="Staff Head Shot" src={this.state.file}></img>
+            <div className="card">
+                <img className="card-img-top" alt="Staff Head Shot" src={this.state.file}></img>
                 <h1>{this.state.firstName} {this.state.lastName}</h1>
                 <h3>Phone Number: {this.state.phoneNumber}</h3>
                 <h3>E-mail Address: {this.state.email}</h3>
@@ -40,8 +40,8 @@ class StaffDetails extends Component {
                 <h4>Birthday: {this.state.birthday}</h4>
                 <h5>Favorite Color: {this.state.color}</h5>
 
-                <Link to={`/edit-staff/${this.state._id}`}>Edit Staff</Link>
-                <Link to={'/all-staff'}>Back to all Staff</Link>
+                <Link className="btn btn-primary" to={`/edit-staff/${this.state._id}`}>Edit Staff</Link>
+                <Link className="btn btn-primary" to={'/all-staff'}>Back to all Staff</Link>
 
             </div>
         )

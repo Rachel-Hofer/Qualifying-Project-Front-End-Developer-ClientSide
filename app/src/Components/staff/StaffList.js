@@ -18,6 +18,7 @@ class StaffList extends Component {
     listAllStaff = () => {
         Axios.get(`http://localhost:5000/api/all-staff`)
             .then(responseFromApi => {
+                console.log(responseFromApi.data, this.selectValue)
                 this.setState({
                     listOfStaff: responseFromApi.data,
                     filteredStaff: responseFromApi.data
@@ -25,6 +26,14 @@ class StaffList extends Component {
                 })
             })
     }
+
+    // sortByKey = (array, key) => {
+    //     console.log("is this working?")
+    //     return array.sort(function (a, b) {
+    //         var x = a[key]; var y = b[key];
+    //         return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+    //     });
+    // }
 
     componentDidMount() {
         this.listAllStaff();
@@ -36,18 +45,21 @@ class StaffList extends Component {
         })
     }
 
-    listStaff = () => {
-        console.log(this.state)
+    listFilteredStaff = () => {
+
         let copy = this.state.filteredStaff;
-        return copy.map((staff, index) => {
+        return copy.sort().map((staff, index) => {
             return (
-                <div key={index}>
-                    <img width="200px" alt="headshot" src={staff.file}></img>
-                    <Link to={`/staff/${staff._id}`}>
-                        <h3>{staff.firstName} {staff.lastName}</h3>
-                    </Link>
-                    <p>{staff.phoneNumber} </p>
+
+                <div class="card" key={index}>
+                    <img class="card-img-top" src={staff.file} alt="Card image cap" />
+                    <div class="card-body">
+                        <h5 class="card-title">{staff.firstName} {staff.lastName}</h5>
+                        <p class="card-text">Phone Number: {staff.phoneNumber}</p>
+                        <Link className="btn btn-primary" to={`/staff/${staff._id}`}>Staff Details</Link>
+                    </div>
                 </div>
+
             )
         })
     }
@@ -59,7 +71,7 @@ class StaffList extends Component {
             let fullList = [...this.state.listOfStaff];
             let searchBy = this.state.selectValue;
             const newFilteredList = fullList.filter((singleStaff) => {
-                console.log('this is singlestaff.seac', singleStaff[searchBy], searchBy)
+
                 return singleStaff[searchBy].toLowerCase().includes(this.state.searchInput.toLowerCase());
             })
             console.log('newFilteredList', newFilteredList)
@@ -70,7 +82,7 @@ class StaffList extends Component {
 
 
     render() {
-        console.log(this.state)
+
         return (
             <div className="StaffList">
                 <label>Search: </label>
@@ -80,9 +92,9 @@ class StaffList extends Component {
                     <option value="lastName">Last Name</option>
                     <option value="phoneNumber">Phone Number</option>
                 </select>
-                <div>
 
-                    {this.listStaff()}
+                <div className="cardHolder">
+                    {this.listFilteredStaff()}
                 </div>
             </div>
         )

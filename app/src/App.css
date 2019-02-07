@@ -8,8 +8,21 @@
     padding: 1rem;
 } 
 
-/* .theRows {
-    margin-left: 9.5rem;
-} */
+.cardHolder {
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: row wrap;
+    align-items: center;
+    
+}
 
+.card {
+    width: 20%;
+    margin: 3rem 2rem;
+    
+}
+
+.card-img-top {
+    height: 20rem;
+}
 

@@ -42,11 +42,11 @@ class StaffDetails extends Component {
             })
     }
 
-    deleteStaff = (staffID) => {
-        console.log("STAFF ID HERE", staffID)
-        this.staffServices.deleteStaff(staffID)
+    deleteStaff = () => {
+
+        this.staffServices.deleteStaff(this.state._id)
             .then((deletedStaff) => {
-                this.listAllStaff();
+                console.log("deletedStaff", deletedStaff)
                 this.props.history.push('/all-staff')
             })
             .catch((err) => {
@@ -55,6 +55,9 @@ class StaffDetails extends Component {
     }
 
     render() {
+        console.log("*&^R%ET&YUIHGYFCGHVBJK", this.state)
+        var theStaffID = this.state._id;
+        console.log("123456", theStaffID)
 
         return (
             <div className="detailCardHolder">
@@ -70,7 +73,7 @@ class StaffDetails extends Component {
 
                     <div className="buttonHolder">
                         <Link className="btnToDetails" to={`/edit-staff/${this.state._id}`}>Edit Staff</Link>
-                        <button className="btnToDetails" onClick={() => this.deleteStaff(this.state.staffID)}>Delete Staff</button>
+                        <button className="btnToDetails" onClick={this.deleteStaff}>Delete Staff</button>
                         {/* <Link className="btnExtraStyle" to={'/all-staff'}>Delete Staff</Link> */}
                     </div>
                 </div>

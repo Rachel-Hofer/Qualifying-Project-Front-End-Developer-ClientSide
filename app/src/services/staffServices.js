@@ -53,8 +53,8 @@ class staffServices {
             })
     }
 
-    deleteStaff = (staffID, id) => {
-        console.log(staffID)
+    deleteStaff = (id) => {
+
         return this.staffServices.post(`/delete-staff/` + id)
             .then((staffDeleted) => {
                 console.log("This staff member has been deleted successfully", staffDeleted)

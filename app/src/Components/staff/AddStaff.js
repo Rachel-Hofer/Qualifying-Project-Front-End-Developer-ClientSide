@@ -58,36 +58,37 @@ class AddStaff extends Component {
             })
     }
 
-    allLetter = (e) => {
-        console.log("LETTER, 1", e.target.value)
+    // allLetter = (e) => {
+    //     console.log("LETTER, 1", e.target.value)
 
-        var letters = /[A-Za-z]/gi;
+    //     var letters = /[a-zA-Z]+/g;
 
-        if (e.target.value === (letters)) {
-            return true;
-        }
-        else {
-            console.log("LETTER, 2", e.target.value)
-            alert('Please input alphabet characters only');
-            return false;
-        }
-    }
+    //     if (e.target.value == (letters)) {
+    //         return true;
+    //     }
+    //     else {
+    //         console.log("LETTER, 2", e.target.value)
+    //         alert('Please input alphabet characters only');
+    //         return false;
+    //     }
+    // }
 
-    allNumbers = (e) => {
-        console.log("NUMBER, 1", e.target.value)
+    // allNumbers = (e) => {
+    //     console.log("NUMBER, 1", e.target.value)
 
-        var numbers = /^[0-9]+$/;
+    //     var numbers = /^[0-9]+$/;
 
-        if (e.target.value === (numbers)) {
-            return true;
-        }
-        else {
-            console.log("NUMBER, 2", e.target.value)
-            alert('Please input numerical characters only');
-            return false;
-        }
-    }
+    //     if (e.target.value === (numbers)) {
+    //         return true;
+    //     }
+    //     else {
+    //         console.log("NUMBER, 2", e.target.value)
+    //         alert('Please input numerical characters only');
+    //         return false;
+    //     }
+    // }
 
+    // onKeyUp={e => this.allLetter(e)}
 
     render() {
 
@@ -100,7 +101,7 @@ class AddStaff extends Component {
                         <Col md={12}>
                             <FormGroup className="theRows">
                                 <Label for="exampleFirstName">First Name </Label>
-                                <Input className="lettersOnly" onKeyUp={e => this.allLetter(e)} onChange={e => this.handleChange(e)} type="text" name="firstName" placeholder="Jane" />
+                                <Input className="lettersOnly" onChange={e => this.handleChange(e)} type="text" name="firstName" placeholder="Jane" />
                             </FormGroup>
                         </Col>
                     </Row>
@@ -108,7 +109,7 @@ class AddStaff extends Component {
                         <Col md={12}>
                             <FormGroup className="theRows">
                                 <Label for="exampleLastName">Last Name </Label>
-                                <Input onKeyUp={e => this.allLetter(e)} onChange={e => this.handleChange(e)} type="text" name="lastName" placeholder="Doe" required />
+                                <Input onChange={e => this.handleChange(e)} type="text" name="lastName" placeholder="Doe" required />
                             </FormGroup>
                         </Col>
                     </Row>
@@ -116,7 +117,7 @@ class AddStaff extends Component {
                         <Col md={12}>
                             <FormGroup className="theRows">
                                 <Label for="exampleAge">Age </Label>
-                                <Input onKeyUp={e => this.allNumbers(e)} onChange={e => this.handleChange(e)} type="text" name="age" placeholder="32" />
+                                <Input onChange={e => this.handleChange(e)} type="text" name="age" placeholder="32" />
                             </FormGroup>
                         </Col>
                     </Row>
@@ -134,7 +135,7 @@ class AddStaff extends Component {
                         <Col md={12}>
                             <FormGroup className="theRows">
                                 <Label for="exampleText">Favorite Color </Label>
-                                <Input onKeyUp={e => this.allLetter(e)} onChange={e => this.handleChange(e)} type="text" name="color" placeholder="pink" />
+                                <Input onChange={e => this.handleChange(e)} type="text" name="color" placeholder="pink" />
                             </FormGroup>
                         </Col>
                     </Row>

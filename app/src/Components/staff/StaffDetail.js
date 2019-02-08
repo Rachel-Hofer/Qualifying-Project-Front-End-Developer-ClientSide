@@ -8,7 +8,6 @@ class StaffDetails extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
         };
     }
 
@@ -25,7 +24,6 @@ class StaffDetails extends Component {
                 this.setState({
                     listOfStaff: responseFromApi.data,
                     filteredStaff: responseFromApi.data
-
                 })
             })
     }
@@ -43,7 +41,6 @@ class StaffDetails extends Component {
     }
 
     deleteStaff = () => {
-
         this.staffServices.deleteStaff(this.state._id)
             .then((deletedStaff) => {
                 console.log("deletedStaff", deletedStaff)
@@ -54,10 +51,10 @@ class StaffDetails extends Component {
             })
     }
 
+
     render() {
-        console.log("*&^R%ET&YUIHGYFCGHVBJK", this.state)
+
         var theStaffID = this.state._id;
-        console.log("123456", theStaffID)
 
         return (
             <div className="detailCardHolder">

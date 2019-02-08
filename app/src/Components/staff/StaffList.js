@@ -7,7 +7,6 @@ class StaffList extends Component {
     constructor() {
         super();
         this.state = {
-
             listOfStaff: [],
             selectValue: 'firstName',
             searchInput: '',
@@ -18,7 +17,6 @@ class StaffList extends Component {
     listAllStaff = () => {
         Axios.get(`http://localhost:5000/api/all-staff`)
             .then(responseFromApi => {
-                console.log("HERERERERERERERERERERE", responseFromApi)
                 responseFromApi.data.sort((function (a, b) {
                     if (a.firstName < b.firstName) { return -1; }
                     if (a.firstName > b.firstName) { return 1; }
@@ -27,20 +25,15 @@ class StaffList extends Component {
                 this.setState({
                     listOfStaff: responseFromApi.data,
                     filteredStaff: responseFromApi.data
-
                 })
             })
-
-
     }
-
-
-
 
     componentDidMount() {
         this.listAllStaff();
 
     }
+
     handleChange = (e) => {
         this.setState({
             selectValue: e.target.value
@@ -48,7 +41,6 @@ class StaffList extends Component {
     }
 
     listFilteredStaff = () => {
-
         let copy = this.state.filteredStaff;
         return copy.map((staff, index) => {
             return (
@@ -63,7 +55,6 @@ class StaffList extends Component {
                         </div>
                     </div>
                 </div>
-
             )
         })
     }
@@ -81,7 +72,6 @@ class StaffList extends Component {
             console.log('newFilteredList', newFilteredList)
             this.setState({ filteredStaff: newFilteredList })
         })
-
     }
 
 

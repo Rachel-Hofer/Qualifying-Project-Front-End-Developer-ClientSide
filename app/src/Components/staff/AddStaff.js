@@ -14,7 +14,6 @@ class AddStaff extends Component {
         birthday: '',
         email: '',
         file: ''
-
     }
 
     staffServices = new staffServices();
@@ -57,6 +56,8 @@ class AddStaff extends Component {
 
             })
     }
+
+    // Couldn't get it to work
 
     // allLetter = (e) => {
     //     console.log("LETTER, 1", e.target.value)
@@ -164,7 +165,6 @@ class AddStaff extends Component {
                         <button className="inputBtn btnExtra" type="submit" value="Create">Create</button>
                         <button className="btnExtra"><Link className="inputBtn" to={'/all-staff/'}>Cancel</Link></button>
                     </div>
-                    {/* <Input type="submit" value="Create" /> */}
                 </Form>
             </div>
         );

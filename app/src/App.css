@@ -3,6 +3,13 @@
     min-height: 100vh;
 }
 
+.title {
+    text-align: center;
+    font-size: 5rem;
+    color: #6c8493;
+    font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman";
+}
+
 .employeeForm {
     border: 2px solid black;
     border-radius: 5px;
@@ -12,6 +19,34 @@
     padding: 1rem;
     background-color: #A9B7C0;
 } 
+
+.edit {
+    width: 21%;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    border-left: 2px solid black;
+    margin-left: 25%;
+    margin-bottom: 0;
+    border-radius: 4px;
+    padding: 3px;
+    background-color: rgba(239, 217, 193, .5);
+    font-size: 1.2rem;
+}
+
+.createNew {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+
+/* ************************* */
+/* ALL CARD STYLING */
+/* ************************* */
+
+.card-title {
+    margin-bottom: 0;
+}
 
 .cardHolder {
     display: flex;
@@ -50,7 +85,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
 }
 
 .detailPTags {
@@ -65,10 +99,6 @@
     padding-bottom: 2rem;
 }
 
-.card-title {
-    margin-bottom: 0;
-}
-
 .name {
     padding-top: 1rem;
     font-size: 2rem;
@@ -80,11 +110,45 @@
     padding-bottom: 2rem;
 }
 
+
+/* ************************* */
+/* SEARCH BAR */
+/* ************************* */
+
+.search {
+    display: flex;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    justify-content: center;
+    border: 5px solid #C7D8C6;
+    background-color: #A9B7C0;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.searchBarLabel {
+margin-right: 5px;
+}
+
+.searchBarSelect {
+    margin-left: 1rem;
+    width: 10vw;
+}
+
+.searchBarValue {
+    width: 20vw;
+}
+
+
+/* ************************* */
+/* ALL BUTTONS */
+/* ************************* */
+
 .buttonHolder {
     display: flex;
     justify-content: space-evenly;
 }
-
 
 .btnExtra {
 width: 20vw;
@@ -96,7 +160,6 @@ padding: 10px 15px;
 color: black;
 margin-bottom: 1rem;
 }
-
 
 .btnExtra:visited {
     color: black;
@@ -151,57 +214,6 @@ font-size: 1rem;
     color: white;
     text-decoration: none;
     opacity: .5;
-}
-
-.search {
-    display: flex;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    justify-content: center;
-    border: 5px solid #C7D8C6;
-    background-color: #A9B7C0;
-    width: 60%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.searchBarLabel {
-margin-right: 5px;
-}
-
-.searchBarSelect {
-    margin-left: 1rem;
-    width: 10vw;
-}
-
-.searchBarValue {
-    width: 20vw;
-}
-
-.title {
-    text-align: center;
-    font-size: 5rem;
-    color: #6c8493;
-    font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman";
-}
-
-.edit {
-    width: 21%;
-    border-top: 2px solid black;
-    border-right: 2px solid black;
-    border-left: 2px solid black;
-    margin-left: 25%;
-    margin-bottom: 0;
-    border-radius: 4px;
-    padding: 3px;
-    background-color: rgba(239, 217, 193, .5);
-    font-size: 1.2rem;
-}
-
-.createNew {
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
 }
 
 .btnToCreate {

@@ -10,13 +10,10 @@ class staffServices {
         this.staffServices = service;
     }
 
-
     listAllStaff = () => {
         return this.staffServices.get('/all-staff')
             .then(response => response.data)
-
     }
-
 
     createStaff = (firstName, lastName, age, phoneNumber, color, birthday, email, file) => {
         let formData = new FormData();
@@ -34,7 +31,6 @@ class staffServices {
                 return response.data
             })
     }
-
 
     editStaff = (firstName, lastName, age, phoneNumber, color, birthday, email, file, id) => {
         let formData = new FormData();
@@ -58,7 +54,6 @@ class staffServices {
         return this.staffServices.post(`/delete-staff/` + id)
             .then((staffDeleted) => {
                 console.log("This staff member has been deleted successfully", staffDeleted)
-
             })
     }
 

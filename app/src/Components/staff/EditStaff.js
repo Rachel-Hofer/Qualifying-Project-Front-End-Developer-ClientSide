@@ -42,7 +42,6 @@ class EditStaff extends Component {
             })
     }
 
-
     handleChange = (e) => {
         this.setState({ [e.target.name]: e.target.value }, () => {
 
@@ -144,7 +143,6 @@ class EditStaff extends Component {
                         <button className="btnExtra"><Link className="inputBtn" to={'/all-staff/'}>Cancel</Link></button>
                     </div>
                 </Form>
-
             </div >
         )
     }

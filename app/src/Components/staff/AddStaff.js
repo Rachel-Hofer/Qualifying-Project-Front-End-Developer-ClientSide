@@ -1,3 +1,5 @@
+// Create new staff member
+
 import React, { Component } from 'react';
 import { Col, Row, Form, FormGroup, Label, Input } from 'reactstrap';
 import { Link } from 'react-router-dom';

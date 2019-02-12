@@ -1,3 +1,5 @@
+// Shows all staff
+
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Axios from 'axios';

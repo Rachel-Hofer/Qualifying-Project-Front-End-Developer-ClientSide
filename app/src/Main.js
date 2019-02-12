@@ -1,3 +1,5 @@
+// Main: has all routes
+
 import React, { Component } from 'react';
 import { Switch, Route } from "react-router-dom";
 import AddStaff from './Components/staff/AddStaff';

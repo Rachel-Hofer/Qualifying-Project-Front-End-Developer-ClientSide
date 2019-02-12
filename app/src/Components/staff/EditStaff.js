@@ -1,3 +1,5 @@
+//Edit Staff information
+
 import React, { Component } from 'react';
 import { Col, Row, Form, FormGroup, Label, Input } from 'reactstrap';
 import { Link } from 'react-router-dom';

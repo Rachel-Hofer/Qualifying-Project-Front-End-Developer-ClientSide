@@ -1,3 +1,5 @@
+// App.js which connects to Main, which connects to all.
+
 import React, { Component } from 'react';
 import './App.css';
 import { Route } from "react-router-dom";
